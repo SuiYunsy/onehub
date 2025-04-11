@@ -11,7 +11,7 @@ import (
 const (
 	TokensPriceType    = "tokens"
 	TimesPriceType     = "times"
-	DefaultPrice       = 30.0
+	DefaultPrice       = 0.0
 	DollarRate         = 0.002
 	RMBRate            = 0.014
 	DefaultCacheRatios = 0.5

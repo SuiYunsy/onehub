@@ -396,7 +396,7 @@ export default function ChannelList() {
           </Button>
         </ButtonGroup>
       </Stack>
-      <Stack mb={5}>
+      {/* <Stack mb={5}>
         <Alert severity="info">
           {t('channel_index.priorityWeightExplanation')}
           <br />
@@ -408,7 +408,7 @@ export default function ChannelList() {
           <br />
           {t('channel_index.description4')}
         </Alert>
-      </Stack>
+      </Stack> */}
       <Card>
         <Box component="form" noValidate>
           <TableToolBar filterName={toolBarValue} handleFilterName={handleToolBarValue} groupOptions={groupOptions} tags={tags} />

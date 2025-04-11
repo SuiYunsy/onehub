@@ -22,7 +22,7 @@ export default function Overview() {
   const [usersData, setUsersData] = useState([]);
   const [dateRange, setDateRange] = useState({ start: dayjs().subtract(6, 'day').startOf('day'), end: dayjs().endOf('day') });
 
-  const [groupType, setGroupType] = useState('model_type');
+  const [groupType, setGroupType] = useState('model');
   const [userId, setUserId] = useState(0);
 
   const handleSearch = () => {
@@ -120,15 +120,6 @@ export default function Overview() {
       </Grid>
       <Grid item xs={12}>
         <ApexCharts
-          id="cost"
-          isLoading={channelLoading}
-          chartDatas={channelData?.costs || {}}
-          title={t('analytics_index.consumptionStatistics')}
-          decimal={3}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <ApexCharts
           id="token"
           isLoading={channelLoading}
           chartDatas={channelData?.tokens || {}}
@@ -154,7 +145,16 @@ export default function Overview() {
           unit=""
         />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
+        <ApexCharts
+          id="cost"
+          isLoading={channelLoading}
+          chartDatas={channelData?.costs || {}}
+          title={t('analytics_index.consumptionStatistics')}
+          decimal={3}
+        />
+      </Grid>
+      {/* <Grid item xs={12} md={6}>
         <ApexCharts isLoading={redemptionLoading} chartDatas={redemptionData} title={t('analytics_index.redemptionStatistics')} />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -163,7 +163,7 @@ export default function Overview() {
 
       <Grid item xs={12} md={6}>
         <ApexCharts isLoading={orderLoading} chartDatas={orderData} title="充值" />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

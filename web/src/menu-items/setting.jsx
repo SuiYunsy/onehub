@@ -47,29 +47,11 @@ const Setting = {
       isAdmin: true,
       children: [
         {
-          id: 'user_group',
-          title: '用户分组',
-          type: 'item',
-          url: '/panel/user_group',
-          icon: icons.IconUsers,
-          breadcrumbs: false,
-          isAdmin: true
-        },
-        {
           id: 'pricing',
           title: '模型价格',
           type: 'item',
           url: '/panel/pricing',
           icon: icons.IconReceipt2,
-          breadcrumbs: false,
-          isAdmin: true
-        },
-        {
-          id: 'telegram',
-          title: 'Telegram Bot',
-          type: 'item',
-          url: '/panel/telegram',
-          icon: icons.IconBrandTelegram,
           breadcrumbs: false,
           isAdmin: true
         },
@@ -81,36 +63,54 @@ const Setting = {
           icon: icons.IconModel,
           breadcrumbs: false,
           isAdmin: true
-        }
-      ]
-    },
-    {
-      id: 'paySetting',
-      title: '支付设置',
-      type: 'collapse',
-      icon: icons.IconBrandPaypal,
-      isAdmin: true,
-      children: [
+        },
         {
-          id: 'redemption',
-          title: '兑换',
+          id: 'user_group',
+          title: '用户分组',
           type: 'item',
-          url: '/panel/redemption',
-          icon: icons.IconCoin,
+          url: '/panel/user_group',
+          icon: icons.IconUsers,
           breadcrumbs: false,
           isAdmin: true
         },
-        {
-          id: 'payment',
-          title: '支付',
-          type: 'item',
-          url: '/panel/payment',
-          icon: icons.IconBrandPaypal,
-          breadcrumbs: false,
-          isAdmin: true
-        }
+        // {
+        //   id: 'telegram',
+        //   title: 'Telegram Bot',
+        //   type: 'item',
+        //   url: '/panel/telegram',
+        //   icon: icons.IconBrandTelegram,
+        //   breadcrumbs: false,
+        //   isAdmin: true
+        // },
       ]
     },
+    // {
+    //   id: 'paySetting',
+    //   title: '支付设置',
+    //   type: 'collapse',
+    //   icon: icons.IconBrandPaypal,
+    //   isAdmin: true,
+    //   children: [
+    //     {
+    //       id: 'redemption',
+    //       title: '兑换',
+    //       type: 'item',
+    //       url: '/panel/redemption',
+    //       icon: icons.IconCoin,
+    //       breadcrumbs: false,
+    //       isAdmin: true
+    //     },
+    //     {
+    //       id: 'payment',
+    //       title: '支付',
+    //       type: 'item',
+    //       url: '/panel/payment',
+    //       icon: icons.IconBrandPaypal,
+    //       breadcrumbs: false,
+    //       isAdmin: true
+    //     }
+    //   ]
+    // },
 
     {
       id: 'token',
@@ -121,15 +121,15 @@ const Setting = {
       breadcrumbs: false
     },
 
-    {
-      id: 'profile',
-      title: '个人设置',
-      type: 'item',
-      url: '/panel/profile',
-      icon: icons.IconUserScan,
-      breadcrumbs: false,
-      isAdmin: false
-    },
+    // {
+    //   id: 'profile',
+    //   title: '个人设置',
+    //   type: 'item',
+    //   url: '/panel/profile',
+    //   icon: icons.IconUserScan,
+    //   breadcrumbs: false,
+    //   isAdmin: false
+    // },
 
     {
       id: 'setting',
