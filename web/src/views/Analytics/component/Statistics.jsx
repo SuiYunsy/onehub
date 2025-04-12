@@ -136,8 +136,7 @@ export default function Overview() {
           content={userStatistics?.total_user || '0'}
           subContent={
             <>
-              {t('analytics_index.directRegistration')}：{userStatistics?.total_direct_user || '0'} <br />
-              {t('analytics_index.invitationRegistration')}：{userStatistics?.total_inviter_user || '0'}
+              {t('analytics_index.directRegistration')}：{userStatistics?.total_direct_user || '0'} / {t('analytics_index.invitationRegistration')}：{userStatistics?.total_inviter_user || '0'}
             </>
           }
         />
@@ -149,8 +148,8 @@ export default function Overview() {
           content={channelStatistics.total}
           subContent={
             <>
-              {t('analytics_index.active')}：{channelStatistics.active} / {t('analytics_index.disabled')}：{channelStatistics.disabled} <br />
-              {t('analytics_index.testDisabled')}：{channelStatistics.test_disabled}
+              {t('analytics_index.active')}：{channelStatistics.active} / {t('analytics_index.disabled')}：
+              {channelStatistics.disabled} / {t('analytics_index.testDisabled')}：{channelStatistics.test_disabled}
             </>
           }
         />
@@ -162,7 +161,7 @@ export default function Overview() {
           content={rechargeStatistics.total}
           subContent={
             <>
-              兑换码: {rechargeStatistics.Redemption} <br /> 订单: {rechargeStatistics.Oder} / {rechargeStatistics.OderContent}
+              兑换码: {rechargeStatistics.Redemption} / 订单: {rechargeStatistics.Oder} {rechargeStatistics.OderContent}
             </>
           }
         />

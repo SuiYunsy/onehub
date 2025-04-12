@@ -82,10 +82,10 @@ const Sidebar = ({ drawerOpen, drawerToggle, window: windowProp }) => {
               }
             }}
           >
-            <MenuCard />
+            {/* <MenuCard /> */}
             <MenuList />
 
-            <Box
+            {/* <Box
               sx={{
                 pt: 2,
                 pb: 2,
@@ -111,7 +111,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window: windowProp }) => {
                   }}
                 />
               </Stack>
-            </Box>
+            </Box> */}
           </PerfectScrollbar>
         </Box>
       </BrowserView>
@@ -164,10 +164,10 @@ const Sidebar = ({ drawerOpen, drawerToggle, window: windowProp }) => {
                 flex: 1
               }}
             >
-              <MenuCard />
+              {/* <MenuCard /> */}
               <MenuList />
 
-              <Box
+              {/* <Box
                 sx={{
                   pt: 2,
                   pb: 2,
@@ -193,7 +193,7 @@ const Sidebar = ({ drawerOpen, drawerToggle, window: windowProp }) => {
                     }}
                   />
                 </Stack>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Box>

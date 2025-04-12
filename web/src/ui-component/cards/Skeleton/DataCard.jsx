@@ -4,7 +4,7 @@ import SubCard from 'ui-component/cards/SubCard';
 import { Divider, Stack } from '@mui/material';
 
 const DataCard = () => (
-  <SubCard sx={{ height: '160px' }}>
+  <SubCard sx={{ height: '145px' }}>
     <Stack spacing={1}>
       <Skeleton variant="rectangular" height={20} width={80} />
       <Skeleton variant="rectangular" height={41} width={50} />

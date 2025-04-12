@@ -115,7 +115,7 @@ export default function Order() {
 
   return (
     <>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
         <Typography variant="h4">{t('orderlogPage.title')}</Typography>
       </Stack>
       <Card>

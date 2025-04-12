@@ -93,8 +93,8 @@ export default function ModelOwnedby() {
 
   return (
     <>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Stack direction="column" spacing={1}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
+        <Stack direction="row" spacing={1} alignItems="center">
           <Typography variant="h2">{t('modelOwnedby.title')}</Typography>
           <Typography variant="subtitle1" color="text.secondary">
             Model Owned By

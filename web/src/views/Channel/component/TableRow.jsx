@@ -382,7 +382,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
 
         <TableCell align="center" sx={{ minWidth: 90 }}>
           {!item.tag && (
-            <Stack direction="column" alignItems="center" spacing={0.5}>
+            <Stack direction="row" alignItems="center" justifyContent="center" spacing={0.5}>
               <Switch checked={statusSwitch === 1} onChange={handleStatus} size="small" />
               <Typography
                 variant="caption"
@@ -439,11 +439,13 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
         </TableCell> */}
         <TableCell>
           {!item.tag && (
-            <Stack spacing={0.5} alignItems="center">
+            <Stack direction="row" spacing={0.25} alignItems="center" justifyContent="center">
               <Typography variant="body1">{renderQuota(item.used_quota)}</Typography>
+              <Typography variant="body1">/</Typography>
               <Typography
                 variant="caption"
                 sx={{
+                  lineHeight: 1.5,
                   color: 'success.main',
                   fontWeight: 600,
                   cursor: 'pointer',
@@ -463,14 +465,14 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
               id={`priority-${item.id}`}
               type="number"
               label={t('channel_index.priority')}
-              variant="outlined"
+              variant="standard"
               size="small"
               value={priority}
               onChange={(e) => setPriority(Number(e.target.value))}
               inputProps={{
-                min: '0'
+                // min: '0'
               }}
-              sx={{ width: '90px' }}
+              sx={{ width: '64px' }}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -486,7 +488,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                             .then(({ success }) => {
                               if (success) {
                                 item.priority = priority;
-                                showInfo(t('channel_row.priorityUpdateSuccess'));
+                                // showInfo(t('channel_row.priorityUpdateSuccess'));
                               }
                             })
                             .catch((error) => {
@@ -511,14 +513,14 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                 id={`weight-${item.id}`}
                 type="number"
                 label={t('channel_index.weight')}
-                variant="outlined"
+                variant="standard"
                 size="small"
                 value={weight}
                 onChange={(e) => setWeight(Number(e.target.value))}
                 inputProps={{
                   min: '1'
                 }}
-                sx={{ width: '90px' }}
+                sx={{ width: '64px' }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -606,21 +608,21 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
       >
         <MenuItem
           onClick={() => {
-            popover.onClose();
-            manageChannel(currentTestingChannel ? currentTestingChannel.id : item.id, 'copy');
-          }}
-        >
-          <Icon icon="solar:copy-bold-duotone" style={{ marginRight: '16px' }} />
-          {t('token_index.copy')}
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
             setOpenCheck(true);
             popover.onClose();
           }}
         >
           <Icon icon="solar:checklist-minimalistic-bold" style={{ marginRight: '16px' }} />
           {t('channel_row.check')}
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            popover.onClose();
+            manageChannel(currentTestingChannel ? currentTestingChannel.id : item.id, 'copy');
+          }}
+        >
+          <Icon icon="solar:copy-bold-duotone" style={{ marginRight: '16px' }} />
+          {t('token_index.copy')}
         </MenuItem>
 
         {CHANNEL_OPTIONS[currentTestingChannel ? currentTestingChannel?.type : item.type]?.url && (
@@ -693,7 +695,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
       >
         <TableCell style={{ paddingBottom: 0, paddingTop: 0, textAlign: 'left' }} colSpan={20}>
           <Collapse in={openRow} timeout="auto" unmountOnExit>
-            <Grid container spacing={1} sx={{ py: 2 }}>
+            <Grid container spacing={0} sx={{ py: 0 }}>
               <Grid item xs={12}>
                 <Box
                   sx={{
@@ -750,8 +752,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                       flexWrap: 'wrap',
                       gap: '10px',
                       m: 1,
-                      px: 1,
-                      py: 0.5,
+                      p: 0,
                       bgcolor: 'background.neutral',
                       borderRadius: 1,
                       alignItems: 'center'
@@ -792,8 +793,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                       flexWrap: 'wrap',
                       gap: '10px',
                       m: 1,
-                      px: 1,
-                      py: 0.5,
+                      p: 0,
                       bgcolor: 'background.neutral',
                       borderRadius: 1,
                       alignItems: 'center'
@@ -824,8 +824,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                       flexWrap: 'wrap',
                       gap: '10px',
                       m: 1,
-                      px: 1,
-                      py: 0.5,
+                      p: 0,
                       bgcolor: 'background.neutral',
                       borderRadius: 1,
                       alignItems: 'center'
@@ -926,7 +925,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                             <Table size="small" sx={{ '& .MuiTableCell-root': { py: 1, px: 1.5 } }}>
                               <TableHead sx={{ bgcolor: 'background.neutral' }}>
                                 <TableRow>
-                                  <TableCell padding="checkbox" sx={{ pl: 1, width: '40px', textAlign: 'center' }}>
+                                  <TableCell padding="checkbox" sx={{ pl: '12px !important', textAlign: 'center' }}>
                                     <Checkbox
                                       indeterminate={selectedChannels.length > 0 && selectedChannels.length < tagChannels.length}
                                       checked={tagChannels.length > 0 && selectedChannels.length === tagChannels.length}
@@ -989,34 +988,43 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                                       </Stack>
                                     </TableCell>
                                     <TableCell sx={{ textAlign: 'center' }}>
-                                      <Tooltip title={t('channel_row.clickUpdateQuota')} placement="top">
-                                        <Box sx={{ cursor: 'pointer' }} onClick={() => manageChannel(channel.id, 'update_balance')}>
-                                          <Stack direction="column" spacing={0.5} alignItems="center" justifyContent="center">
-                                            <Typography
-                                              variant="body2"
-                                              sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: 500,
-                                                '&:hover': { textDecoration: 'underline' }
-                                              }}
-                                            >
-                                              {renderQuota(channel.used_quota)}
-                                            </Typography>
-                                            <Typography
-                                              variant="caption"
-                                              sx={{
-                                                color: 'success.main',
-                                                fontWeight: 600
-                                              }}
-                                            >
-                                              ${channel.balance}
-                                            </Typography>
-                                          </Stack>
-                                        </Box>
-                                      </Tooltip>
+                                      <Stack direction="row" spacing={0.25} alignItems="center" justifyContent="center">
+                                          <Typography variant="body1">{renderQuota(channel.used_quota)}</Typography>
+                                          <Typography variant="body1">/</Typography>
+                                          <Typography
+                                            variant="caption"
+                                            sx={{
+                                              lineHeight: 1.5,
+                                              color: 'success.main',
+                                              fontWeight: 600,
+                                              cursor: 'pointer',
+                                              '&:hover': { textDecoration: 'underline' }
+                                            }}
+                                            onClick={() => manageChannel(channel.id, 'update_balance')}
+                                          >
+                                            {renderBalance(999, channel.balance)}
+                                          </Typography>
+                                      </Stack>
                                     </TableCell>
                                     <TableCell sx={{ textAlign: 'center' }}>
-                                      <ResponseTimeLabel test_time={channel.test_time} response_time={channel.response_time} />
+                                      <ResponseTimeLabel test_time={channel.test_time} response_time={channel.response_time} 
+                                      handle_action={async () => {
+                                        const { success, time } = await manageChannel(channel.id, 'test', channel.test_model);
+                                        if (success) {
+                                          showInfo(t('channel_row.modelTestSuccess', { channel: channel.name, model: channel.test_model, time: time.toFixed(2) }));
+                                          setTagChannels((prev) =>
+                                            prev.map((c) =>
+                                              c.id === channel.id
+                                                ? {
+                                                    ...c,
+                                                    test_time: Date.now() / 1000,
+                                                    response_time: time * 1000
+                                                  }
+                                                : c
+                                            )
+                                          );
+                                        }
+                                      }}/>
                                     </TableCell>
 
                                     <TableCell sx={{ textAlign: 'center' }}>
@@ -1024,16 +1032,16 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                                         <TextField
                                           id={`priority-${channel.id}`}
                                           type="number"
-                                          label="优先级"
+                                          // label={t('channel_index.priority')}
                                           variant="standard"
                                           value={channel.priority}
                                           onChange={(e) => handleTagChannelPriorityChange(channel.id, Number(e.target.value))}
                                           inputProps={{
-                                            min: '0',
-                                            style: { padding: '4px', fontSize: '0.85rem' }
+                                            // min: '0',
+                                            style: { padding: '1px 0 5px 0' }
                                           }}
                                           sx={{
-                                            width: '90px',
+                                            width: '64px',
                                             '.MuiInputBase-root': {
                                               minHeight: '30px'
                                             },
@@ -1061,7 +1069,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                                                         .then(({ success }) => {
                                                           if (success) {
                                                             // 成功后更新本地状态（虽然没必要，因为UI状态已经是新值了）
-                                                            showSuccess(t('channel_row.priorityUpdateSuccess'));
+                                                            // showInfo(t('channel_row.priorityUpdateSuccess'));
                                                           }
                                                         })
                                                         .catch((error) => {
@@ -1101,7 +1109,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
                                         <Tooltip title={t('common.edit')} placement="top">
                                           <IconButton
                                             size="small"
-                                            sx={{ p: 0.5, color: 'primary.main' }}
+                                            sx={{ p: 0.5 }}
                                             onClick={() => {
                                               setCurrentTestingChannel(channel);
                                               setEditedChannel({ name: channel.name, key: channel.key });
@@ -1376,7 +1384,7 @@ export default function ChannelTableRow({ item, manageChannel, onRefresh, groupO
             type="text"
             fullWidth
             multiline
-            minRows={3}
+            minRows={1}
             variant="outlined"
             value={editedChannel.key}
             onChange={(e) => setEditedChannel({ ...editedChannel, key: e.target.value })}

@@ -741,7 +741,7 @@ export default function componentStyleOverrides(theme) {
           maxWidth: '480px'
         },
         paperWidthMd: {
-          maxWidth: '640px'
+          maxWidth: '960px'
         }
       }
     },

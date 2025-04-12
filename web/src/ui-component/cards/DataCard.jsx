@@ -9,7 +9,7 @@ export default function DataCard({ isLoading, title, content, tip, subContent })
       {isLoading ? (
         <SkeletonDataCard />
       ) : (
-        <SubCard sx={{ height: '160px' }}>
+        <SubCard sx={{ height: '145px' }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
             {title}
           </Typography>

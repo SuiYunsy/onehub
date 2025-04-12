@@ -155,7 +155,7 @@ export default function ModelPrice() {
 
   return (
     <Stack spacing={3} sx={{ padding: theme.spacing(3) }}>
-      <Stack direction="column" spacing={1}>
+      <Stack direction="row" spacing={1} alignItems="center">
         <Typography variant="h2">{t('modelpricePage.availableModels')}</Typography>
         <Typography variant="subtitle1" color="text.secondary">
           Available Models
@@ -331,7 +331,7 @@ function getOther(t, extraRatios) {
   const outputRatio = extraRatios.output_audio_tokens_ratio;
 
   return (
-    <Stack direction="column" spacing={1}>
+    <Stack direction="row" spacing={1} alignItems="center">
       <Label color="primary" variant="outlined">
         {t('modelpricePage.inputAudioTokensRatio')}: {inputRatio}
       </Label>

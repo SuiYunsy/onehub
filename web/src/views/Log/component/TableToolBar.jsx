@@ -82,6 +82,25 @@ export default function TableToolBar({ filterName, handleFilterName, userIsAdmin
             }
           />
         </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="channel-channel_id-label">{t('tableToolBar.channelId')}</InputLabel>
+          <OutlinedInput
+            id="channel_id"
+            name="channel_id"
+            sx={{
+              minWidth: '100%'
+            }}
+            label={t('tableToolBar.channelId')}
+            value={filterName.channel_id}
+            onChange={handleFilterName}
+            placeholder={t('tableToolBar.channelId')}
+            startAdornment={
+              <InputAdornment position="start">
+                <Icon icon="ph:open-ai-logo-duotone" width="20" color={grey500} />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
       </Stack>
       <Stack
         direction={{ xs: 'column', sm: 'row' }}
@@ -90,6 +109,25 @@ export default function TableToolBar({ filterName, handleFilterName, userIsAdmin
         paddingBottom={'0px'}
         sx={{ width: '100%', '& > *': { flex: 1 } }}
       >
+        <FormControl>
+          <InputLabel htmlFor="channel-username-label">{t('tableToolBar.username')}</InputLabel>
+          <OutlinedInput
+            id="username"
+            name="username"
+            sx={{
+              minWidth: '100%'
+            }}
+            label={t('tableToolBar.username')}
+            value={filterName.username}
+            onChange={handleFilterName}
+            placeholder={t('tableToolBar.username')}
+            startAdornment={
+              <InputAdornment position="start">
+                <Icon icon="solar:user-bold-duotone" width="20" color={grey500} />
+              </InputAdornment>
+            }
+          />
+        </FormControl>
         <FormControl>
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'zh-cn'}>
             <DateTimePicker
@@ -149,7 +187,7 @@ export default function TableToolBar({ filterName, handleFilterName, userIsAdmin
             MenuProps={{
               PaperProps: {
                 style: {
-                  maxHeight: 200
+                  maxHeight: 230
                 }
               }
             }}
@@ -165,54 +203,18 @@ export default function TableToolBar({ filterName, handleFilterName, userIsAdmin
         </FormControl>
       </Stack>
 
-      {userIsAdmin && (
+      {/* {userIsAdmin && (
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={{ xs: 3, sm: 2, md: 4 }}
           padding={'24px'}
           sx={{ width: '100%', '& > *': { flex: 1 } }}
         >
-          <FormControl>
-            <InputLabel htmlFor="channel-channel_id-label">{t('tableToolBar.channelId')}</InputLabel>
-            <OutlinedInput
-              id="channel_id"
-              name="channel_id"
-              sx={{
-                minWidth: '100%'
-              }}
-              label={t('tableToolBar.channelId')}
-              value={filterName.channel_id}
-              onChange={handleFilterName}
-              placeholder={t('tableToolBar.channelId')}
-              startAdornment={
-                <InputAdornment position="start">
-                  <Icon icon="ph:open-ai-logo-duotone" width="20" color={grey500} />
-                </InputAdornment>
-              }
-            />
-          </FormControl>
+          
 
-          <FormControl>
-            <InputLabel htmlFor="channel-username-label">{t('tableToolBar.username')}</InputLabel>
-            <OutlinedInput
-              id="username"
-              name="username"
-              sx={{
-                minWidth: '100%'
-              }}
-              label={t('tableToolBar.username')}
-              value={filterName.username}
-              onChange={handleFilterName}
-              placeholder={t('tableToolBar.username')}
-              startAdornment={
-                <InputAdornment position="start">
-                  <Icon icon="solar:user-bold-duotone" width="20" color={grey500} />
-                </InputAdornment>
-              }
-            />
-          </FormControl>
+          
         </Stack>
-      )}
+      )} */}
     </>
   );
 }

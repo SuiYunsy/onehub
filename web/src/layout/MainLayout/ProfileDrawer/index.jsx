@@ -92,7 +92,7 @@ const ProfileDrawer = ({ open, onClose }) => {
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         {/* 顶部关闭按钮 */}
-        <Box sx={{ p: 2, display: 'flex', justifyContent: 'flex-end' }}>
+        <Box sx={{ px: 2, py: 1, display: 'flex', justifyContent: 'flex-end' }}>
           <IconButton onClick={onClose} edge="end">
             <Icon icon="material-symbols:close" />
           </IconButton>
@@ -174,7 +174,7 @@ const ProfileDrawer = ({ open, onClose }) => {
               </Typography>
             </Box>
           </Stack>
-          <Divider sx={{ borderWidth: '1px', borderStyle: 'dashed', mt: 2 , mb: 2 }} />
+          <Divider sx={{ borderWidth: '1px', borderStyle: 'dashed', mt: 1 , mb: 1 }} />
           {/* 按钮区域 */}
           <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
             <Button
@@ -198,7 +198,7 @@ const ProfileDrawer = ({ open, onClose }) => {
             </Button>
           </Box>
 
-          <Divider sx={{ borderWidth: '1px', borderStyle: 'dashed', mt: 2 , mb: 2 }} />
+          <Divider sx={{ borderWidth: '1px', borderStyle: 'dashed', mt: 1 , mb: 1 }} />
 
           {/* 底部导航菜单 */}
           <Box>

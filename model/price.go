@@ -166,6 +166,23 @@ type ModelType struct {
 	Type  int
 }
 
+func GetDefaultPriceMod() []*Price {
+	ModelTypes := map[string]ModelType{
+		"gpt-4":      {[]float64{0, 0}, config.ChannelTypeOpenAI},
+	}
+	var prices []*Price
+	for model, modelType := range ModelTypes {
+		prices = append(prices, &Price{
+			Model:       model,
+			Type:        TokensPriceType,
+			ChannelType: modelType.Type,
+			Input:       modelType.Ratio[0],
+			Output:      modelType.Ratio[1],
+		})
+	}
+	return prices
+}
+
 // 1 === $0.002 / 1K tokens
 // 1 === ￥0.014 / 1k tokens
 func GetDefaultPrice() []*Price {

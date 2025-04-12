@@ -56,7 +56,7 @@ export default function TelegramTableRow({ item, manageAction, handleOpenModal, 
         <TableCell>{item.parse_mode}</TableCell>
         <TableCell>{item.reply_message}</TableCell>
         <TableCell>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={1} alignItems="center">
             <IconButton onClick={handleOpenMenu} sx={{ color: 'rgb(99, 115, 129)' }}>
               <Icon icon="solar:menu-dots-circle-bold-duotone" />
             </IconButton>

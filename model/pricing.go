@@ -60,7 +60,7 @@ func NewPricing() {
 	// 初始化时，需要检测是否有更新
 	if viper.GetString("auto_price_updates_mode") == "system" && (viper.GetBool("auto_price_updates") || len(PricingInstance.Prices) == 0) {
 		logger.SysLog("Checking for pricing updates")
-		prices := GetDefaultPrice()
+		prices := GetDefaultPriceMod()
 		PricingInstance.SyncPricing(prices, "system")
 		logger.SysLog("Pricing initialized")
 	}
@@ -509,7 +509,7 @@ func GetPricesList(pricingType string) []*Price {
 
 	switch pricingType {
 	case "default":
-		prices = GetDefaultPrice()
+		prices = GetDefaultPriceMod()
 	case "db":
 		prices = PricingInstance.GetAllPricesList()
 	case "old":

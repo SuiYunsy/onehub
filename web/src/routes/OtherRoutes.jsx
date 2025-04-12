@@ -23,9 +23,9 @@ const ModelPrice = Loadable(lazy(() => import('views/ModelPrice')));
 const WithMargins = ({ children }) => (
   <Box
     sx={{
-      maxWidth: '1200px',
+      maxWidth: '1280px',
       margin: '0 auto',
-      padding: { xs: 0, sm: '0 24px' }
+      padding: { xs: 0, sm: '0 0px' }
     }}
   >
     {children}

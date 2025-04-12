@@ -459,7 +459,7 @@ const EditModal = ({ open, channelId, onCancel, onOk, groupOptions, isTag, model
                 )}
               </FormControl>
 
-              {!isTag && (
+              {/* {!isTag && ( */}
                 <FormControl fullWidth error={Boolean(touched.name && errors.name)} sx={{ ...theme.typography.otherInput }}>
                   <InputLabel htmlFor="channel-name-label">{customizeT(inputLabel.name)}</InputLabel>
                   <OutlinedInput
@@ -481,7 +481,7 @@ const EditModal = ({ open, channelId, onCancel, onOk, groupOptions, isTag, model
                     <FormHelperText id="helper-tex-channel-name-label"> {customizeT(inputPrompt.name)} </FormHelperText>
                   )}
                 </FormControl>
-              )}
+              {/* )} */}
               {channelId === 0 && (
                 <Container
                   sx={{
@@ -752,6 +752,7 @@ const EditModal = ({ open, channelId, onCancel, onOk, groupOptions, isTag, model
                     onChange={handleChange}
                     aria-describedby="helper-text-channel-key-label"
                     minRows={5}
+                    maxRows={10}
                     placeholder={customizeT(inputPrompt.key) + t('channel_edit.batchKeytip')}
                   />
                 )}

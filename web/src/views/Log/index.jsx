@@ -59,17 +59,17 @@ export default function Log() {
   const [columnVisibility, setColumnVisibility] = useState({
     created_at: true,
     channel_id: true,
-    user_id: true,
-    group: true,
+    user_id: false, // 默认不显示
+    group: false, // 默认不显示
     token_name: true,
-    type: true,
+    type: false, // 默认不显示
     model_name: true,
     duration: true,
     message: true,
     completion: true,
-    quota: true,
+    quota: false, // 默认不显示
     source_ip: true,
-    detail: true
+    detail: false // 默认不显示
   });
   const [columnMenuAnchor, setColumnMenuAnchor] = useState(null);
 
@@ -183,8 +183,8 @@ export default function Log() {
 
   return (
     <>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Stack direction="column" spacing={1}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
+        <Stack direction="row" spacing={1} alignItems="center">
           <Typography variant="h2">{t('logPage.title')}</Typography>
           <Typography variant="subtitle1" color="text.secondary">
             Log
@@ -245,7 +245,7 @@ export default function Log() {
               onClose={handleColumnMenuClose}
               PaperProps={{
                 style: {
-                  maxHeight: 300,
+                  maxHeight: 400,
                   width: 200
                 }
               }}
@@ -320,7 +320,7 @@ export default function Log() {
                   {
                     id: 'group',
                     label: t('logPage.groupLabel'),
-                    disableSort: false,
+                    disableSort: true,
                     hide: !columnVisibility.group
                   },
                   {
@@ -344,7 +344,7 @@ export default function Log() {
                   {
                     id: 'duration',
                     label: t('logPage.durationLabel'),
-                    tooltip: t('logPage.durationTooltip'),
+                    // tooltip: t('logPage.durationTooltip'),
                     disableSort: true,
                     hide: !columnVisibility.duration
                   },

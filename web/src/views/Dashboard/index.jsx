@@ -75,7 +75,7 @@ const Dashboard = () => {
       {/* 今日请求、消费、token */}
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
-          <Grid item lg={3} xs={12} sx={{ height: '160' }}>
+          <Grid item lg={6} xs={12} sx={{ height: '160' }}>
             <StatisticalLineChartCard
               isLoading={isLoading}
               title={t('dashboard_index.today_requests')}
@@ -85,7 +85,7 @@ const Dashboard = () => {
               lastDayValue={requestChart?.lastDayValue}
             />
           </Grid>
-          <Grid item lg={3} xs={12} sx={{ height: '160' }}>
+          {/* <Grid item lg={4} xs={12} sx={{ height: '160' }}>
             <StatisticalLineChartCard
               isLoading={isLoading}
               title={t('dashboard_index.today_consumption')}
@@ -94,8 +94,8 @@ const Dashboard = () => {
               todayValue={quotaChart?.todayValue}
               lastDayValue={quotaChart?.lastDayValue}
             />
-          </Grid>
-          <Grid item lg={3} xs={12} sx={{ height: '160' }}>
+          </Grid> */}
+          <Grid item lg={6} xs={12} sx={{ height: '160' }}>
             <StatisticalLineChartCard
               isLoading={isLoading}
               title={t('dashboard_index.today_tokens')}
@@ -105,97 +105,23 @@ const Dashboard = () => {
               lastDayValue={tokenChart?.lastDayValue}
             />
           </Grid>
-          <Grid item lg={3} xs={12} sx={{ height: '160' }}>
+          {/* <Grid item lg={3} xs={12} sx={{ height: '160' }}>
             <RPM />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
 
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
-          <Grid item lg={8} xs={12}>
+          <Grid item xs={12}>
             {/* 7日模型消费统计 */}
-            <ApexCharts isLoading={isLoading} chartDatas={statisticalData} title={t('dashboard_index.week_model_statistics')} />
-            <Box mt={2}>
+            {/* <ApexCharts isLoading={isLoading} chartDatas={statisticalData} title={t('dashboard_index.week_model_statistics')} /> */}
+            {/* <Box mt={2}> */}
               {/* 7日消费统计 */}
               <QuotaLogWeek />
-            </Box>
+            {/* </Box> */}
           </Grid>
 
-          <Grid item lg={4} xs={12}>
-            {/* 用户信息 */}
-            <UserCard>
-              <Box
-                sx={{
-                  pt: 4,
-                  pb: 4,
-                  px: 3,
-                  textAlign: 'center'
-                }}
-              >
-                <Typography variant="h4" sx={{ mb: 0.5 }}>
-                  {users.username}
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 1 }}>
-                  {users.email}
-                </Typography>
-
-                <Label color={'primary'} variant="outlined" sx={{ mb: 3 }}>
-                  {userGroup?.[users.group]?.name || users.group}
-                  (RPM:{userGroup?.[users.group]?.api_rate || 0})
-                </Label>
-
-                {/* 统计信息区域 */}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2.5
-                  }}
-                >
-                  {[
-                    {
-                      label: t('dashboard_index.balance'),
-                      value: users?.quota ? '$' + calculateQuota(users.quota) : t('dashboard_index.unknown')
-                    },
-                    {
-                      label: t('dashboard_index.used'),
-                      value: users?.used_quota ? '$' + calculateQuota(users.used_quota) : t('dashboard_index.unknown')
-                    },
-                    { label: t('dashboard_index.calls'), value: users?.request_count || t('dashboard_index.unknown') }
-                  ].map((item, index) => (
-                    <Box
-                      key={index}
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        px: 2,
-                        py: 1.5,
-                        borderRadius: 2,
-                        bgcolor: 'rgba(145, 158, 171, 0.08)',
-                        '&:hover': {
-                          bgcolor: 'rgba(145, 158, 171, 0.12)'
-                        }
-                      }}
-                    >
-                      <Typography variant="body2">{item.label}</Typography>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        {item.value}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
-              </Box>
-            </UserCard>
-            <Box mt={2}>
-              <QuickStartCard />
-            </Box>
-            {/* 邀请 */}
-            <Box mt={2}>
-              <InviteCard />
-            </Box>
-          </Grid>
         </Grid>
       </Grid>
     </Grid>

@@ -203,6 +203,9 @@ export default function ChannelList() {
         case 'tag_change_status':
           res = await API.put(`/api/channel_tag/${id}/status/${value}`);
           break;
+        case 'update_balance':
+          showError('尚未实现');
+          break;
         default:
           showError('无效操作');
           return { success: false, message: '无效操作' };
@@ -379,8 +382,8 @@ export default function ChannelList() {
 
   return (
     <AdminContainer>
-      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Stack direction="column" spacing={1}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
+        <Stack direction="row" spacing={1} alignItems="center">
           <Typography variant="h2">{t('channel_index.channel')}</Typography>
           <Typography variant="subtitle1" color="text.secondary">
             Channel

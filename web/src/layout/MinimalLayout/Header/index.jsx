@@ -148,7 +148,7 @@ const Header = () => {
               <Button
                 component={Link}
                 variant="contained"
-                to="/panel"
+                to="/panel/dashboard"
                 color="primary"
                 sx={{
                   ml: 2,
@@ -304,7 +304,7 @@ const Header = () => {
                     {account.user ? (
                       <ListItemButton
                         component={Link}
-                        to="/panel"
+                        to="/panel/dashboard"
                         sx={{
                           backgroundColor: theme.palette.primary.light,
                           borderRadius: '8px',

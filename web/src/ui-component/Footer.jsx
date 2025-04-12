@@ -20,7 +20,7 @@ const Footer = () => {
             <Link href="https://github.com/MartialBE/one-hub" target="_blank">
               {siteInfo.system_name} {import.meta.env.VITE_APP_VERSION}{' '}
             </Link>
-            {t('footer.developedBy')}{' '}
+            {/* {t('footer.developedBy')}{' '}
             <Link href="https://github.com/MartialBE" target="_blank">
               MartialBE
             </Link>
@@ -29,7 +29,7 @@ const Footer = () => {
               JustSong
             </Link>{' '}
             One Hub，{t('footer.sourceCode')}
-            <Link href="https://opensource.org/licenses/mit-license.php"> {t('footer.license')}</Link>
+            <Link href="https://opensource.org/licenses/mit-license.php"> {t('footer.license')}</Link> */}
           </>
         )}
       </Box>

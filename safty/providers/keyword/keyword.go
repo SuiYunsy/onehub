@@ -46,7 +46,7 @@ func (k *KeywordChecker) Name() string {
 func (k *KeywordChecker) Init() error {
 	// 特殊供应商可以在这里进行相关配置初始化
 	k.keywords = config.SafeKeyWords
-	logger.SysLog(fmt.Sprintf("SafeTools %s loda keyword：%d pcs", k.Name(), len(k.keywords)))
+	logger.SysLog(fmt.Sprintf("SafeTools %s loda keyword: %d pcs", k.Name(), len(k.keywords)))
 	return nil
 }
 

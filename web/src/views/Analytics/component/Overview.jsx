@@ -82,12 +82,7 @@ export default function Overview() {
         <Box sx={{ display: 'flex', gap: 2, m: 3 }}>
           <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12} sm={6}>
-              <DateRangePicker
-                defaultValue={dateRange}
-                onChange={handleDateRangeChange}
-                localeText={{ start: '开始时间', end: '结束时间' }}
-                fullWidth
-              />
+              <TextField type="number" label="用户ID" value={userId} onChange={(e) => setUserId(Number(e.target.value))} fullWidth />
             </Grid>
 
             <Grid item xs={12} sm={6}>
@@ -99,7 +94,12 @@ export default function Overview() {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <TextField type="number" label="用户ID" value={userId} onChange={(e) => setUserId(Number(e.target.value))} fullWidth />
+              <DateRangePicker
+                defaultValue={dateRange}
+                onChange={handleDateRangeChange}
+                localeText={{ start: '开始时间', end: '结束时间' }}
+                fullWidth
+              />
             </Grid>
 
             <Grid item xs={12} sm={6}>
@@ -145,7 +145,7 @@ export default function Overview() {
           unit=""
         />
       </Grid>
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}>
         <ApexCharts
           id="cost"
           isLoading={channelLoading}
@@ -153,7 +153,7 @@ export default function Overview() {
           title={t('analytics_index.consumptionStatistics')}
           decimal={3}
         />
-      </Grid>
+      </Grid> */}
       {/* <Grid item xs={12} md={6}>
         <ApexCharts isLoading={redemptionLoading} chartDatas={redemptionData} title={t('analytics_index.redemptionStatistics')} />
       </Grid>

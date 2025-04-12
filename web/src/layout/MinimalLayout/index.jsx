@@ -58,9 +58,9 @@ const MinimalLayout = () => {
       >
         <Outlet />
       </Box>
-      <Box sx={{ flex: 'none', position: 'relative', zIndex: 1 }}>
+      {/* <Box sx={{ flex: 'none', position: 'relative', zIndex: 1 }}>
         <Footer />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

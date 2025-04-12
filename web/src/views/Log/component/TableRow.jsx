@@ -64,10 +64,10 @@ function requestTSLabelOptions(request_ts) {
 export default function LogTableRow({ item, userIsAdmin, userGroup, columnVisibility }) {
   const { t } = useTranslation();
   let request_time = item.request_time / 1000;
-  let request_time_str = request_time.toFixed(2) + ' S';
+  let request_time_str = request_time.toFixed(2) + 's';
 
   let first_time = item.metadata?.first_response ? item.metadata.first_response / 1000 : 0;
-  let first_time_str = first_time ? `${first_time.toFixed(2)} S` : '';
+  let first_time_str = first_time ? `${first_time.toFixed(2)}s` : '';
 
   const stream_time = request_time - first_time;
 
@@ -75,7 +75,7 @@ export default function LogTableRow({ item, userIsAdmin, userGroup, columnVisibi
   let request_ts_str = '';
   if (first_time > 0 && item.completion_tokens > 0) {
     request_ts = (item.completion_tokens ? item.completion_tokens : 1) / stream_time;
-    request_ts_str = `${request_ts.toFixed(2)} t/s`;
+    request_ts_str = `${request_ts.toFixed(2)}t/s`;
   }
 
   const { totalInputTokens, totalOutputTokens, show, tokenDetails } = useMemo(() => calculateTokens(item), [item]);
@@ -123,9 +123,9 @@ export default function LogTableRow({ item, userIsAdmin, userGroup, columnVisibi
 
         {columnVisibility.duration && (
           <TableCell sx={{ p: '10px 8px' }}>
-            <Stack direction="column" spacing={0.5}>
+            <Stack direction="row" spacing={0.25} justifyContent="center">
               <Label color={requestTimeLabelOptions(request_time)}>
-                {item.request_time == 0 ? '无' : request_time_str} {first_time_str ? ' / ' + first_time_str : ''}
+                {item.request_time == 0 ? '无' : request_time_str}{first_time_str ? '(' + first_time_str + ')' : ''}
               </Label>
 
               {request_ts_str && <Label color={requestTSLabelOptions(request_ts)}>{request_ts_str}</Label>}
@@ -173,7 +173,7 @@ function viewModelName(model_name, isStream) {
           }
         }}
       >
-        <Label color="primary" variant="outlined" copyText={model_name}>
+        <Label color="primary" variant="outlined" copyText={model_name} sx={{ cursor: 'pointer' }}>
           {model_name}
         </Label>
       </Badge>
@@ -181,7 +181,7 @@ function viewModelName(model_name, isStream) {
   }
 
   return (
-    <Label color="primary" variant="outlined" copyText={model_name}>
+    <Label color="primary" variant="outlined" copyText={model_name} sx={{ cursor: 'pointer' }}>
       {model_name}
     </Label>
   );

@@ -62,7 +62,8 @@ func createRootAccountIfNeed() error {
 }
 
 func chooseDB() (*gorm.DB, error) {
-	if viper.IsSet("sql_dsn") {
+    // 检查sql_dsn是否设置且不为空
+    if viper.IsSet("sql_dsn") && viper.GetString("sql_dsn") != "" {
 		dsn := viper.GetString("sql_dsn")
 		localTimezone := utils.GetLocalTimezone()
 		if strings.HasPrefix(dsn, "postgres://") {
@@ -89,7 +90,7 @@ func chooseDB() (*gorm.DB, error) {
 		})
 	}
 	// Use SQLite
-	logger.SysLog("SQL_DSN not set, using SQLite as database")
+	logger.SysLog("SQL_DSN not set or empty, using SQLite as database")
 	common.UsingSQLite = true
 	config := fmt.Sprintf("?_busy_timeout=%d", utils.GetOrDefault("sqlite_busy_timeout", 3000))
 	return gorm.Open(sqlite.Open(viper.GetString("sqlite_path")+config), &gorm.Config{
